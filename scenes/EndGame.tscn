@@ -1,0 +1,8 @@
+[gd_scene format=2]
+
+[node name="Node" type="Node"]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_right = 317.0
+margin_bottom = 164.0
+text = "END GAME"

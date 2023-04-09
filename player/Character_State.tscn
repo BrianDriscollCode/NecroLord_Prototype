@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Node
+
+onready var states = {
+	BaseState.State.Free: $IS_FREE,
+	BaseState.State.Battle: $IN_Battle
+}
+
+func init(player: Player) -> void:
+	for child in get_children():
+		child.player = player
+
+func _physics_process(delta):
+	print(states)
+"
+
+[node name="Character_State" type="Node"]
+script = SubResource( 1 )
+
+[node name="IS_FREE" type="Node" parent="."]
+
+[node name="IN_BATTLE" type="Node" parent="."]
