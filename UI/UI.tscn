@@ -1,9 +1,7 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/healthbar/healthbarGREENFILLER.png" type="Texture" id=1]
-[ext_resource path="res://assets/skillbar/skillbar.png" type="Texture" id=2]
 [ext_resource path="res://assets/healthbar/healthbar.png" type="Texture" id=3]
-[ext_resource path="res://assets/tiles/balck.png" type="Texture" id=4]
 [ext_resource path="res://assets/portrait/portrait.png" type="Texture" id=5]
 [ext_resource path="res://assets/healthbar/healthbarREDFILLER.png" type="Texture" id=6]
 [ext_resource path="res://UI/UI.gd" type="Script" id=7]
@@ -34,30 +32,3 @@ texture = ExtResource( 5 )
 margin_top = 160.0
 margin_right = 319.0
 margin_bottom = 180.0
-
-[node name="Sprite" type="Sprite" parent="CenterContainer"]
-position = Vector2( 123, 10 )
-texture = ExtResource( 4 )
-
-[node name="Sprite2" type="Sprite" parent="CenterContainer"]
-position = Vector2( 140, 10 )
-texture = ExtResource( 4 )
-
-[node name="Sprite3" type="Sprite" parent="CenterContainer"]
-position = Vector2( 155, 10 )
-texture = ExtResource( 4 )
-
-[node name="Sprite4" type="Sprite" parent="CenterContainer"]
-position = Vector2( 180, 10 )
-texture = ExtResource( 4 )
-
-[node name="Sprite5" type="Sprite" parent="CenterContainer"]
-position = Vector2( 197, 10 )
-texture = ExtResource( 4 )
-
-[node name="TextureRect" type="TextureRect" parent="CenterContainer"]
-margin_left = 114.0
-margin_top = 1.0
-margin_right = 205.0
-margin_bottom = 19.0
-texture = ExtResource( 2 )

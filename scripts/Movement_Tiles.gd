@@ -12,7 +12,7 @@ func aggregateTiles() -> void:
 		allTiles.append(tile)
 	var counter = 1;
 	for tile in allTiles:
-		print(counter, ": ", tile, tileMap.world_to_map(tile.get_global_position()));
+#		print(counter, ": ", tile, tileMap.world_to_map(tile.get_global_position()));
 		counter += 1;
 	aggregateTilePositions();
 		

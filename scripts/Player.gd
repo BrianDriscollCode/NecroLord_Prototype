@@ -2,15 +2,15 @@ class_name Player
 extends Node2D
 
 #Get viable positions
-onready var movementTiles = get_node("../MovementTiles");
+onready var level_sections = get_node("../level_sections");
 var viablePositions;
 
 #Character position
-onready var tileMap = get_node("../WalkableTileMap"); 
+onready var tileMap = get_node("../TileMap"); 
 var currentPosition;
 
 func _ready():
-	viablePositions = movementTiles.exportTilePositions();
+	viablePositions = level_sections.exportTilePositions();
 	currentPosition = tileMap.world_to_map(self.get_global_position()); 
 			
 func controller():
@@ -39,7 +39,7 @@ func controller():
 			moveCharacter(nextPos, orientPosition);
 
 func checkPositionViability(nextPos: Vector2) -> bool:
-	viablePositions = movementTiles.exportTilePositions();
+	viablePositions = level_sections.exportTilePositions();
 	for tilePos in viablePositions:
 			if tilePos == nextPos:
 				return true;
