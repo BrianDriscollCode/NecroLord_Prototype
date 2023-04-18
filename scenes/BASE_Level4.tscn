@@ -1,0 +1,2318 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://UI/UI.tscn" type="PackedScene" id=1]
+[ext_resource path="res://tilemap/Basic.tres" type="TileSet" id=2]
+[ext_resource path="res://tilemap/BasicNEw.tres" type="TileSet" id=3]
+[ext_resource path="res://scripts/BASE_Level_Script.gd" type="Script" id=4]
+[ext_resource path="res://player/Player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://levelTools/walkingPaths/MovementTiles.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scripts/Movement_Tiles.gd" type="Script" id=7]
+[ext_resource path="res://levelTools/LevelCamera.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scripts/level_sections.gd" type="Script" id=9]
+[ext_resource path="res://assets/effects/green2.png" type="Texture" id=10]
+
+[node name="BASE_Level" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="TileMap" type="TileMap" parent="."]
+cell_size = Vector2( 16, 16 )
+format = 1
+
+[node name="level_sections" type="Node2D" parent="."]
+script = ExtResource( 9 )
+
+[node name="section" type="Node2D" parent="level_sections"]
+position = Vector2( 0, 2 )
+
+[node name="WalkableTileMap" type="TileMap" parent="level_sections/section"]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 8, -1610612734, 0, 9, 0, 0, 10, 0, 0, 11, -1073741822, 0, 65544, -1610612734, 0, 65545, -1610612736, 0, 65546, 24, 0, 65547, -1073741822, 0, 131080, -1610612734, 0, 131081, 24, 0, 131082, -1610612736, 0, 131083, -1073741822, 0, 196609, 26, 0, 196610, 26, 0, 196611, 26, 0, 196612, 26, 0, 196613, 26, 0, 196614, 26, 0, 196615, 26, 0, 196616, 1610612737, 0, 196617, 0, 0, 196618, 0, 0, 196619, -1073741823, 0, 196620, 26, 0, 196621, 26, 0, 196622, 26, 0, 196623, 26, 0, 196624, 26, 0, 196625, 26, 0, 196626, 5, 0, 262145, 24, 0, 262146, 0, 0, 262147, 24, 0, 262148, 0, 0, 262149, 24, 0, 262150, 0, 0, 262151, 24, 0, 262152, 0, 0, 262153, 24, 0, 262154, 0, 0, 262155, 24, 0, 262156, 0, 0, 262157, 24, 0, 262158, 0, 0, 262159, 24, 0, 262160, 0, 0, 262161, 24, 0, 262162, 13, 0, 327681, 0, 0, 327682, 24, 0, 327683, 0, 0, 327684, 24, 0, 327685, 0, 0, 327686, 24, 0, 327687, 0, 0, 327688, 24, 0, 327689, 0, 0, 327690, 24, 0, 327691, 0, 0, 327692, 24, 0, 327693, 0, 0, 327694, 24, 0, 327695, 0, 0, 327696, 24, 0, 327697, 0, 0, 327698, 13, 0, 393217, 24, 0, 393218, 1610612736, 0, 393219, 24, 0, 393220, 1610612736, 0, 393221, 24, 0, 393222, 1610612736, 0, 393223, 24, 0, 393224, 1610612736, 0, 393225, 24, 0, 393226, 1610612736, 0, 393227, 24, 0, 393228, 1610612736, 0, 393229, 24, 0, 393230, 1610612736, 0, 393231, 24, 0, 393232, 1610612736, 0, 393233, 24, 0, 393234, 13, 0, 458752, 2, 0, 458753, 2, 0, 458754, 2, 0, 458755, 2, 0, 458756, 2, 0, 458757, 2, 0, 458758, 2, 0, 458759, 2, 0, 458760, 2, 0, 458761, 2, 0, 458762, 2, 0, 458763, 2, 0, 458764, 2, 0, 458765, 2, 0, 458766, 2, 0, 458767, 2, 0, 458768, 2, 0, 458769, 2, 0, 458770, 17, 0 )
+
+[node name="ExteriorTileMap" type="TileMap" parent="level_sections/section"]
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 0, -1610612736, 0, 1, -1610612736, 0, 2, -1610612736, 0, 3, -1610612736, 0, 4, -1610612736, 0, 5, -1610612736, 0, 6, -1610612736, 0, 7, -1610612736, 0, 12, -1610612736, 0, 13, -1610612736, 0, 14, -1610612736, 0, 15, -1610612736, 0, 16, -1610612736, 0, 17, -1610612736, 0, 18, -1610612736, 0, 19, -1610612736, 0, 65536, -1610612736, 0, 65537, -1610612736, 0, 65538, -1610612736, 0, 65539, -1610612736, 0, 65540, -1610612736, 0, 65541, -1610612736, 0, 65542, -1610612736, 0, 65543, -1610612736, 0, 65548, -1610612736, 0, 65549, -1610612736, 0, 65550, -1610612736, 0, 65551, -1610612736, 0, 65552, -1610612736, 0, 65553, -1610612736, 0, 65554, -1610612736, 0, 65555, -1610612736, 0, 131072, 1610612777, 0, 131073, 1610612751, 0, 131074, 9, 0, 131075, 1610612751, 0, 131076, 1610612751, 0, 131077, 1610612751, 0, 131078, 1610612751, 0, 131079, 1610612751, 0, 131084, 1610612751, 0, 131085, 1610612751, 0, 131086, 9, 0, 131087, 1610612751, 0, 131088, 1610612751, 0, 131089, 1610612751, 0, 131090, 1610612751, 0, 131091, -1610612721, 0, 196608, 27, 0, 196627, -1610612727, 0, 262144, 25, 0, 262163, -1610612721, 0, 327680, 25, 0, 327699, -1610612721, 0, 393216, 25, 0, 393235, -1610612721, 0, 458752, 3, 0, 458771, -1610612727, 0, 524288, -1610612678, 0, 524289, -1610612678, 0, 524290, -1610612678, 0, 524291, -1610612678, 0, 524292, -1610612678, 0, 524293, -1610612678, 0, 524294, -1610612678, 0, 524295, -1610612678, 0, 524296, -1610612678, 0, 524297, -1610612678, 0, 524298, -1610612678, 0, 524299, -1610612678, 0, 524300, -1610612678, 0, 524301, -1610612678, 0, 524302, -1610612678, 0, 524303, -1610612678, 0, 524304, -1610612678, 0, 524305, -1610612678, 0, 524306, -1610612678, 0, 524307, -1610612678, 0, 589824, -1610612676, 0, 589825, -1610612676, 0, 589826, -1610612676, 0, 589827, -1610612676, 0, 589828, -1610612676, 0, 589829, -1610612676, 0, 589830, -1610612676, 0, 589831, -1610612676, 0, 589832, -1610612676, 0, 589833, -1610612676, 0, 589834, -1610612676, 0, 589835, -1610612676, 0, 589836, -1610612676, 0, 589837, -1610612676, 0, 589838, -1610612676, 0, 589839, -1610612676, 0, 589840, -1610612676, 0, 589841, -1610612676, 0, 589842, -1610612676, 0, 589843, -1610612676, 0, 655360, -1610612736, 0, 655361, -1610612736, 0, 655362, -1610612736, 0, 655363, -1610612736, 0, 655364, -1610612736, 0, 655365, -1610612736, 0, 655366, -1610612736, 0, 655367, -1610612736, 0, 655368, -1610612736, 0, 655369, -1610612736, 0, 655370, -1610612736, 0, 655371, -1610612736, 0, 655372, -1610612736, 0, 655373, -1610612736, 0, 655374, -1610612736, 0, 655375, -1610612736, 0, 655376, -1610612736, 0, 655377, -1610612736, 0, 655378, -1610612736, 0, 655379, -1610612736, 0, 720896, -1610612736, 0, 720897, -1610612736, 0, 720898, -1610612736, 0, 720899, -1610612736, 0, 720900, -1610612736, 0, 720901, -1610612736, 0, 720902, -1610612736, 0, 720903, -1610612736, 0, 720904, -1610612736, 0, 720905, -1610612736, 0, 720906, -1610612736, 0, 720907, -1610612736, 0, 720908, -1610612736, 0, 720909, -1610612736, 0, 720910, -1610612736, 0, 720911, -1610612736, 0, 720912, -1610612736, 0, 720913, -1610612736, 0, 720914, -1610612736, 0, 720915, -1610612736, 0 )
+
+[node name="MovementTiles" parent="level_sections/section" instance=ExtResource( 6 )]
+script = ExtResource( 7 )
+
+[node name="section2" type="Node2D" parent="level_sections"]
+position = Vector2( 0, -191 )
+
+[node name="WalkableTileMap" type="TileMap" parent="level_sections/section2"]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 9, 1610612760, 0, 10, 1610612760, 0, 65545, 1610612760, 0, 65546, 1610612760, 0, 131081, 1610612760, 0, 131082, 1610612760, 0, 196617, 1610612760, 0, 196618, 1610612760, 0, 262144, 1610612760, 0, 262145, 1610612760, 0, 262146, 1610612760, 0, 262147, 1610612760, 0, 262148, 1610612760, 0, 262149, 1610612760, 0, 262150, 1610612760, 0, 262151, 1610612760, 0, 262152, 1610612760, 0, 262153, 1610612760, 0, 262154, 1610612760, 0, 262155, 1610612760, 0, 262156, 1610612760, 0, 262157, 1610612760, 0, 262158, 1610612760, 0, 262159, 1610612760, 0, 262160, 1610612760, 0, 262161, 1610612760, 0, 262162, 1610612760, 0, 262163, 1610612760, 0, 327680, 1610612760, 0, 327681, 1610612760, 0, 327682, 1610612760, 0, 327683, 1610612760, 0, 327684, 1610612760, 0, 327685, 1610612760, 0, 327686, 1610612760, 0, 327687, 1610612760, 0, 327688, 1610612760, 0, 327689, 1610612760, 0, 327690, 1610612760, 0, 327691, 1610612760, 0, 327692, 1610612760, 0, 327693, 1610612760, 0, 327694, 1610612760, 0, 327695, 1610612760, 0, 327696, 1610612760, 0, 327697, 1610612760, 0, 327698, 1610612760, 0, 327699, 1610612760, 0, 393216, 1610612760, 0, 393217, 1610612760, 0, 393218, 1610612760, 0, 393219, 1610612760, 0, 393220, 1610612760, 0, 393221, 1610612760, 0, 393222, 1610612760, 0, 393223, 1610612760, 0, 393224, 1610612760, 0, 393225, 1610612760, 0, 393226, 1610612760, 0, 393227, 1610612760, 0, 393228, 1610612760, 0, 393229, 1610612760, 0, 393230, 1610612760, 0, 393231, 1610612760, 0, 393232, 1610612760, 0, 393233, 1610612760, 0, 393234, 1610612760, 0, 393235, 1610612760, 0, 458752, 1610612760, 0, 458753, 1610612760, 0, 458754, 1610612760, 0, 458755, 1610612760, 0, 458756, 1610612760, 0, 458757, 1610612760, 0, 458758, 1610612760, 0, 458759, 1610612760, 0, 458760, 1610612760, 0, 458761, 1610612760, 0, 458762, 1610612760, 0, 458763, 1610612760, 0, 458764, 1610612760, 0, 458765, 1610612760, 0, 458766, 1610612760, 0, 458767, 1610612760, 0, 458768, 1610612760, 0, 458769, 1610612760, 0, 458770, 1610612760, 0, 458771, 1610612760, 0, 524297, 1610612760, 0, 524298, 1610612760, 0, 589833, 1610612760, 0, 589834, 1610612760, 0, 655369, 1610612760, 0, 655370, 1610612760, 0, 720905, 1610612760, 0, 720906, 1610612760, 0 )
+
+[node name="ExteriorTileMap" type="TileMap" parent="level_sections/section2"]
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( -65525, -1073741821, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, -1610612733, 0, 11, -1073741821, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 15, 0, 0, 16, 0, 0, 17, 0, 0, 18, 0, 0, 19, 0, 0, 65536, 0, 0, 65537, 1610612736, 0, 65538, 1610612736, 0, 65539, 1610612736, 0, 65540, 1610612736, 0, 65541, 1610612736, 0, 65542, 1610612736, 0, 65543, 1610612736, 0, 65544, -1610612733, 0, 65547, -1073741821, 0, 65548, 1610612736, 0, 65549, 1610612736, 0, 65550, 1610612736, 0, 65551, 1610612736, 0, 65552, 1610612736, 0, 65553, 1610612736, 0, 65554, 1610612736, 0, 65555, 0, 0, 131072, 0, 0, 131073, 1610612736, 0, 131074, 1610612736, 0, 131075, 1610612736, 0, 131076, 1610612736, 0, 131077, 1610612736, 0, 131078, 1610612736, 0, 131079, 1610612736, 0, 131080, -1610612733, 0, 131083, -1073741821, 0, 131084, 1610612736, 0, 131085, 1610612736, 0, 131086, 1610612736, 0, 131087, 1610612736, 0, 131088, 1610612736, 0, 131089, 1610612736, 0, 131090, 1610612736, 0, 131091, 0, 0, 196608, 1610612739, 0, 196609, 1610612739, 0, 196610, 1610612739, 0, 196611, 1610612739, 0, 196612, 1610612739, 0, 196613, 1610612739, 0, 196614, 1610612739, 0, 196615, 1610612739, 0, 196616, 1610612738, 0, 196619, -1073741822, 0, 196620, 1610612739, 0, 196621, 1610612739, 0, 196622, 1610612739, 0, 196623, 1610612739, 0, 196624, 1610612739, 0, 196625, 1610612739, 0, 196626, 1610612739, 0, 196627, 1610612739, 0, 524288, 3, 0, 524289, 3, 0, 524290, 3, 0, 524291, 3, 0, 524292, 3, 0, 524293, 3, 0, 524294, 3, 0, 524295, 3, 0, 524296, -1610612734, 0, 524299, 2, 0, 524300, 3, 0, 524301, 3, 0, 524302, 3, 0, 524303, 3, 0, 524304, 3, 0, 524305, 3, 0, 524306, 3, 0, 524307, 0, 0, 589824, 0, 0, 589825, 1610612736, 0, 589826, 1610612736, 0, 589827, 1610612736, 0, 589828, 1610612736, 0, 589829, 1610612736, 0, 589830, 1610612736, 0, 589831, 1610612736, 0, 589832, -1610612733, 0, 589835, -1073741821, 0, 589836, 1610612736, 0, 589837, 1610612736, 0, 589838, 1610612736, 0, 589839, 1610612736, 0, 589840, 1610612736, 0, 589841, 1610612736, 0, 589842, 1610612736, 0, 589843, 1610612736, 0, 655360, 0, 0, 655361, 1610612736, 0, 655362, 1610612736, 0, 655363, 1610612736, 0, 655364, 1610612736, 0, 655365, 1610612736, 0, 655366, 1610612736, 0, 655367, 1610612736, 0, 655368, -1610612733, 0, 655371, -1073741821, 0, 655372, 1610612736, 0, 655373, 1610612736, 0, 655374, 1610612736, 0, 655375, 1610612736, 0, 655376, 1610612736, 0, 655377, 1610612736, 0, 655378, 1610612736, 0, 655379, 0, 0, 720896, 0, 0, 720897, 0, 0, 720898, 0, 0, 720899, 0, 0, 720900, 0, 0, 720901, 0, 0, 720902, 0, 0, 720903, 0, 0, 720904, -1610612733, 0, 720907, -1073741821, 0, 720908, 0, 0, 720909, 0, 0, 720910, 0, 0, 720911, 0, 0, 720912, 0, 0, 720913, 0, 0, 720914, 0, 0, 720915, 0, 0 )
+
+[node name="MovementTiles" parent="level_sections/section2" instance=ExtResource( 6 )]
+script = ExtResource( 7 )
+
+[node name="section3" type="Node2D" parent="level_sections"]
+position = Vector2( 0, -384 )
+
+[node name="WalkableTileMap" type="TileMap" parent="level_sections/section3"]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 65537, 40, 0, 65538, 40, 0, 65539, 40, 0, 65540, 40, 0, 65541, 40, 0, 65542, 40, 0, 65543, 40, 0, 65544, 40, 0, 65545, 40, 0, 65546, 40, 0, 65547, 40, 0, 65548, 40, 0, 65549, 40, 0, 65550, 40, 0, 65551, 40, 0, 65552, 40, 0, 65553, 40, 0, 65554, 40, 0, 131073, -1073741784, 0, 131074, 42, 0, 131075, 49, 0, 131076, 42, 0, 131077, 49, 0, 131078, 42, 0, 131079, 49, 0, 131080, 42, 0, 131081, 49, 0, 131082, 42, 0, 131083, 49, 0, 131084, 42, 0, 131085, 49, 0, 131086, 42, 0, 131087, 49, 0, 131088, 42, 0, 131089, 49, 0, 131090, 1610612776, 0, 196610, 49, 0, 196611, 42, 0, 196612, 49, 0, 196613, 42, 0, 196614, 49, 0, 196615, 42, 0, 196616, 49, 0, 196617, 42, 0, 196618, 49, 0, 196619, 42, 0, 196620, 49, 0, 196621, 42, 0, 196622, 49, 0, 196623, 42, 0, 196624, 49, 0, 196625, 42, 0, 262146, 42, 0, 262147, 49, 0, 262148, 42, 0, 262149, 49, 0, 262150, 42, 0, 262151, 49, 0, 262152, 42, 0, 262153, 49, 0, 262154, 42, 0, 262155, 49, 0, 262156, 42, 0, 262157, 49, 0, 262158, 42, 0, 262159, 49, 0, 262160, 42, 0, 262161, 49, 0, 327682, 49, 0, 327683, 42, 0, 327684, 49, 0, 327685, 42, 0, 327686, 49, 0, 327687, 42, 0, 327688, 49, 0, 327689, 42, 0, 327690, 49, 0, 327691, 42, 0, 327692, 49, 0, 327693, 42, 0, 327694, 49, 0, 327695, 42, 0, 327696, 49, 0, 327697, 42, 0, 393218, 42, 0, 393219, 49, 0, 393220, 42, 0, 393221, 49, 0, 393222, 42, 0, 393223, 49, 0, 393224, 42, 0, 393225, 49, 0, 393226, 42, 0, 393227, 49, 0, 393228, 42, 0, 393229, 49, 0, 393230, 42, 0, 393231, 49, 0, 393232, 42, 0, 393233, 49, 0, 458754, 49, 0, 458755, 42, 0, 458756, 49, 0, 458757, 42, 0, 458758, 49, 0, 458759, 42, 0, 458760, 49, 0, 458761, 42, 0, 458762, 49, 0, 458763, 42, 0, 458764, 49, 0, 458765, 42, 0, 458766, 49, 0, 458767, 42, 0, 458768, 49, 0, 458769, 42, 0, 524290, 42, 0, 524291, 49, 0, 524292, 42, 0, 524293, 49, 0, 524294, 42, 0, 524295, 49, 0, 524296, 42, 0, 524297, 49, 0, 524298, 42, 0, 524299, 49, 0, 524300, 42, 0, 524301, 49, 0, 524302, 42, 0, 524303, 49, 0, 524304, 42, 0, 524305, 49, 0, 589826, 49, 0, 589827, 42, 0, 589828, 49, 0, 589829, 42, 0, 589830, 49, 0, 589831, 42, 0, 589832, 49, 0, 589833, 42, 0, 589834, 49, 0, 589835, 42, 0, 589836, 49, 0, 589837, 42, 0, 589838, 49, 0, 589839, 42, 0, 589840, 49, 0, 589841, 42, 0 )
+
+[node name="ExteriorTileMap" type="TileMap" parent="level_sections/section3"]
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 15, 0, 0, 16, 0, 0, 17, 0, 0, 18, 0, 0, 19, 0, 0, 65536, 0, 0, 65555, 0, 0, 131072, 0, 0, 131091, 0, 0, 196608, 0, 0, 196609, -1073741809, 0, 196626, -1610612721, 0, 196627, 0, 0, 262144, 0, 0, 262145, -1073741809, 0, 262162, -1610612721, 0, 262163, 0, 0, 327680, 0, 0, 327681, 0, 0, 327698, 0, 0, 327699, 0, 0, 393216, 0, 0, 393217, 0, 0, 393234, 0, 0, 393235, 0, 0, 458752, 0, 0, 458753, -1073741809, 0, 458770, -1610612721, 0, 458771, 0, 0, 524288, 0, 0, 524289, -1073741809, 0, 524306, -1610612721, 0, 524307, 0, 0, 589824, 0, 0, 589825, -1073741809, 0, 589832, 1610612777, 0, 589842, -1610612721, 0, 589843, 0, 0, 655360, 0, 0, 655361, -1073741809, 0, 655362, 1610612751, 0, 655363, 1610612751, 0, 655364, 1610612751, 0, 655365, 1610612751, 0, 655366, 1610612751, 0, 655367, 1610612751, 0, 655368, -1610612733, 0, 655369, 0, 0, 655370, 0, 0, 655371, -1073741821, 0, 655372, 1610612751, 0, 655373, 1610612751, 0, 655374, 1610612751, 0, 655375, 1610612751, 0, 655376, 1610612751, 0, 655377, 1610612751, 0, 655378, -1610612721, 0, 655379, 0, 0, 720896, 0, 0, 720897, 0, 0, 720898, 0, 0, 720899, 0, 0, 720900, 0, 0, 720901, 0, 0, 720902, 0, 0, 720903, 0, 0, 720904, -1610612733, 0, 720905, 0, 0, 720906, 0, 0, 720907, -1073741821, 0, 720908, 0, 0, 720909, 0, 0, 720910, 0, 0, 720911, 0, 0, 720912, 0, 0, 720913, 0, 0, 720914, 0, 0, 720915, 0, 0 )
+
+[node name="MovementTiles" type="Node2D" parent="level_sections/section3"]
+script = ExtResource( 7 )
+
+[node name="Tile" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 152, 184 )
+texture = ExtResource( 10 )
+
+[node name="Tile2" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 168, 184 )
+texture = ExtResource( 10 )
+
+[node name="Tile3" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 168, 168 )
+texture = ExtResource( 10 )
+
+[node name="Tile4" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 152, 168 )
+texture = ExtResource( 10 )
+
+[node name="Tile133" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 152, 24 )
+texture = ExtResource( 10 )
+
+[node name="Tile134" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 168, 24 )
+texture = ExtResource( 10 )
+
+[node name="Tile135" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 168, 8 )
+texture = ExtResource( 10 )
+
+[node name="Tile136" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 152, 8 )
+texture = ExtResource( 10 )
+
+[node name="Tile5" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 152, 152 )
+texture = ExtResource( 10 )
+
+[node name="Tile6" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 136, 152 )
+texture = ExtResource( 10 )
+
+[node name="Tile7" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 120, 152 )
+texture = ExtResource( 10 )
+
+[node name="Tile8" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 104, 152 )
+texture = ExtResource( 10 )
+
+[node name="Tile9" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 88, 152 )
+texture = ExtResource( 10 )
+
+[node name="Tile10" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 72, 152 )
+texture = ExtResource( 10 )
+
+[node name="Tile11" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 56, 152 )
+texture = ExtResource( 10 )
+
+[node name="Tile12" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 40, 152 )
+texture = ExtResource( 10 )
+
+[node name="Tile13" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 280, 152 )
+texture = ExtResource( 10 )
+
+[node name="Tile14" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 264, 152 )
+texture = ExtResource( 10 )
+
+[node name="Tile15" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 248, 152 )
+texture = ExtResource( 10 )
+
+[node name="Tile16" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 232, 152 )
+texture = ExtResource( 10 )
+
+[node name="Tile17" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 216, 152 )
+texture = ExtResource( 10 )
+
+[node name="Tile18" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 200, 152 )
+texture = ExtResource( 10 )
+
+[node name="Tile19" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 184, 152 )
+texture = ExtResource( 10 )
+
+[node name="Tile20" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 168, 152 )
+texture = ExtResource( 10 )
+
+[node name="Tile21" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 152, 136 )
+texture = ExtResource( 10 )
+
+[node name="Tile22" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 136, 136 )
+texture = ExtResource( 10 )
+
+[node name="Tile23" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 120, 136 )
+texture = ExtResource( 10 )
+
+[node name="Tile24" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 104, 136 )
+texture = ExtResource( 10 )
+
+[node name="Tile25" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 88, 136 )
+texture = ExtResource( 10 )
+
+[node name="Tile26" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 72, 136 )
+texture = ExtResource( 10 )
+
+[node name="Tile27" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 56, 136 )
+texture = ExtResource( 10 )
+
+[node name="Tile28" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 40, 136 )
+texture = ExtResource( 10 )
+
+[node name="Tile29" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 280, 136 )
+texture = ExtResource( 10 )
+
+[node name="Tile30" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 264, 136 )
+texture = ExtResource( 10 )
+
+[node name="Tile31" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 248, 136 )
+texture = ExtResource( 10 )
+
+[node name="Tile32" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 232, 136 )
+texture = ExtResource( 10 )
+
+[node name="Tile33" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 216, 136 )
+texture = ExtResource( 10 )
+
+[node name="Tile34" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 200, 136 )
+texture = ExtResource( 10 )
+
+[node name="Tile35" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 184, 136 )
+texture = ExtResource( 10 )
+
+[node name="Tile36" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 168, 136 )
+texture = ExtResource( 10 )
+
+[node name="Tile37" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 152, 120 )
+texture = ExtResource( 10 )
+
+[node name="Tile38" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 136, 120 )
+texture = ExtResource( 10 )
+
+[node name="Tile39" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 120, 120 )
+texture = ExtResource( 10 )
+
+[node name="Tile40" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 104, 120 )
+texture = ExtResource( 10 )
+
+[node name="Tile41" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 88, 120 )
+texture = ExtResource( 10 )
+
+[node name="Tile42" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 72, 120 )
+texture = ExtResource( 10 )
+
+[node name="Tile43" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 56, 120 )
+texture = ExtResource( 10 )
+
+[node name="Tile44" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 40, 120 )
+texture = ExtResource( 10 )
+
+[node name="Tile45" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 280, 120 )
+texture = ExtResource( 10 )
+
+[node name="Tile46" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 264, 120 )
+texture = ExtResource( 10 )
+
+[node name="Tile47" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 248, 120 )
+texture = ExtResource( 10 )
+
+[node name="Tile48" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 232, 120 )
+texture = ExtResource( 10 )
+
+[node name="Tile49" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 216, 120 )
+texture = ExtResource( 10 )
+
+[node name="Tile50" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 200, 120 )
+texture = ExtResource( 10 )
+
+[node name="Tile51" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 184, 120 )
+texture = ExtResource( 10 )
+
+[node name="Tile52" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 168, 120 )
+texture = ExtResource( 10 )
+
+[node name="Tile53" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 152, 104 )
+texture = ExtResource( 10 )
+
+[node name="Tile54" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 136, 104 )
+texture = ExtResource( 10 )
+
+[node name="Tile55" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 120, 104 )
+texture = ExtResource( 10 )
+
+[node name="Tile56" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 104, 104 )
+texture = ExtResource( 10 )
+
+[node name="Tile57" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 88, 104 )
+texture = ExtResource( 10 )
+
+[node name="Tile58" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 72, 104 )
+texture = ExtResource( 10 )
+
+[node name="Tile59" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 56, 104 )
+texture = ExtResource( 10 )
+
+[node name="Tile60" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 40, 104 )
+texture = ExtResource( 10 )
+
+[node name="Tile61" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 280, 104 )
+texture = ExtResource( 10 )
+
+[node name="Tile62" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 264, 104 )
+texture = ExtResource( 10 )
+
+[node name="Tile63" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 248, 104 )
+texture = ExtResource( 10 )
+
+[node name="Tile64" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 232, 104 )
+texture = ExtResource( 10 )
+
+[node name="Tile65" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 216, 104 )
+texture = ExtResource( 10 )
+
+[node name="Tile66" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 200, 104 )
+texture = ExtResource( 10 )
+
+[node name="Tile67" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 184, 104 )
+texture = ExtResource( 10 )
+
+[node name="Tile68" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 168, 104 )
+texture = ExtResource( 10 )
+
+[node name="Tile69" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 152, 88 )
+texture = ExtResource( 10 )
+
+[node name="Tile70" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 136, 88 )
+texture = ExtResource( 10 )
+
+[node name="Tile71" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 120, 88 )
+texture = ExtResource( 10 )
+
+[node name="Tile72" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 104, 88 )
+texture = ExtResource( 10 )
+
+[node name="Tile73" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 88, 88 )
+texture = ExtResource( 10 )
+
+[node name="Tile74" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 72, 88 )
+texture = ExtResource( 10 )
+
+[node name="Tile75" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 56, 88 )
+texture = ExtResource( 10 )
+
+[node name="Tile76" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 40, 88 )
+texture = ExtResource( 10 )
+
+[node name="Tile77" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 280, 88 )
+texture = ExtResource( 10 )
+
+[node name="Tile78" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 264, 88 )
+texture = ExtResource( 10 )
+
+[node name="Tile79" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 248, 88 )
+texture = ExtResource( 10 )
+
+[node name="Tile80" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 232, 88 )
+texture = ExtResource( 10 )
+
+[node name="Tile81" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 216, 88 )
+texture = ExtResource( 10 )
+
+[node name="Tile82" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 200, 88 )
+texture = ExtResource( 10 )
+
+[node name="Tile83" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 184, 88 )
+texture = ExtResource( 10 )
+
+[node name="Tile84" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 168, 88 )
+texture = ExtResource( 10 )
+
+[node name="Tile85" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 152, 72 )
+texture = ExtResource( 10 )
+
+[node name="Tile86" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 136, 72 )
+texture = ExtResource( 10 )
+
+[node name="Tile87" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 120, 72 )
+texture = ExtResource( 10 )
+
+[node name="Tile88" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 104, 72 )
+texture = ExtResource( 10 )
+
+[node name="Tile89" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 88, 72 )
+texture = ExtResource( 10 )
+
+[node name="Tile90" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 72, 72 )
+texture = ExtResource( 10 )
+
+[node name="Tile91" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 56, 72 )
+texture = ExtResource( 10 )
+
+[node name="Tile92" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 40, 72 )
+texture = ExtResource( 10 )
+
+[node name="Tile93" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 280, 72 )
+texture = ExtResource( 10 )
+
+[node name="Tile94" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 264, 72 )
+texture = ExtResource( 10 )
+
+[node name="Tile95" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 248, 72 )
+texture = ExtResource( 10 )
+
+[node name="Tile96" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 232, 72 )
+texture = ExtResource( 10 )
+
+[node name="Tile97" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 216, 72 )
+texture = ExtResource( 10 )
+
+[node name="Tile98" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 200, 72 )
+texture = ExtResource( 10 )
+
+[node name="Tile99" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 184, 72 )
+texture = ExtResource( 10 )
+
+[node name="Tile100" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 168, 72 )
+texture = ExtResource( 10 )
+
+[node name="Tile101" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 152, 56 )
+texture = ExtResource( 10 )
+
+[node name="Tile102" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 136, 56 )
+texture = ExtResource( 10 )
+
+[node name="Tile103" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 120, 56 )
+texture = ExtResource( 10 )
+
+[node name="Tile104" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 104, 56 )
+texture = ExtResource( 10 )
+
+[node name="Tile105" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 88, 56 )
+texture = ExtResource( 10 )
+
+[node name="Tile106" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 72, 56 )
+texture = ExtResource( 10 )
+
+[node name="Tile107" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 56, 56 )
+texture = ExtResource( 10 )
+
+[node name="Tile108" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 40, 56 )
+texture = ExtResource( 10 )
+
+[node name="Tile109" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 280, 56 )
+texture = ExtResource( 10 )
+
+[node name="Tile110" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 264, 56 )
+texture = ExtResource( 10 )
+
+[node name="Tile111" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 248, 56 )
+texture = ExtResource( 10 )
+
+[node name="Tile112" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 232, 56 )
+texture = ExtResource( 10 )
+
+[node name="Tile113" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 216, 56 )
+texture = ExtResource( 10 )
+
+[node name="Tile114" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 200, 56 )
+texture = ExtResource( 10 )
+
+[node name="Tile115" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 184, 56 )
+texture = ExtResource( 10 )
+
+[node name="Tile116" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 168, 56 )
+texture = ExtResource( 10 )
+
+[node name="Tile117" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 152, 40 )
+texture = ExtResource( 10 )
+
+[node name="Tile118" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 136, 40 )
+texture = ExtResource( 10 )
+
+[node name="Tile119" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 120, 40 )
+texture = ExtResource( 10 )
+
+[node name="Tile120" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 104, 40 )
+texture = ExtResource( 10 )
+
+[node name="Tile121" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 88, 40 )
+texture = ExtResource( 10 )
+
+[node name="Tile122" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 72, 40 )
+texture = ExtResource( 10 )
+
+[node name="Tile123" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 56, 40 )
+texture = ExtResource( 10 )
+
+[node name="Tile124" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 40, 40 )
+texture = ExtResource( 10 )
+
+[node name="Tile125" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 280, 40 )
+texture = ExtResource( 10 )
+
+[node name="Tile126" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 264, 40 )
+texture = ExtResource( 10 )
+
+[node name="Tile127" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 248, 40 )
+texture = ExtResource( 10 )
+
+[node name="Tile128" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 232, 40 )
+texture = ExtResource( 10 )
+
+[node name="Tile129" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 216, 40 )
+texture = ExtResource( 10 )
+
+[node name="Tile130" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 200, 40 )
+texture = ExtResource( 10 )
+
+[node name="Tile131" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 184, 40 )
+texture = ExtResource( 10 )
+
+[node name="Tile132" type="Sprite" parent="level_sections/section3/MovementTiles"]
+position = Vector2( 168, 40 )
+texture = ExtResource( 10 )
+
+[node name="section4" type="Node2D" parent="level_sections"]
+position = Vector2( 0, -576 )
+
+[node name="WalkableTileMap" type="TileMap" parent="level_sections/section4"]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 65537, 40, 0, 65538, 40, 0, 65539, 40, 0, 65540, 40, 0, 65541, 40, 0, 65542, 40, 0, 65543, 40, 0, 65544, 40, 0, 65545, 40, 0, 65546, 40, 0, 65547, 40, 0, 65548, 40, 0, 65549, 40, 0, 65550, 40, 0, 65551, 40, 0, 65552, 40, 0, 65553, 40, 0, 65554, 40, 0, 131073, -1073741784, 0, 131074, 42, 0, 131075, 49, 0, 131076, 42, 0, 131077, 49, 0, 131078, 42, 0, 131079, 49, 0, 131080, 42, 0, 131081, 49, 0, 131082, 42, 0, 131083, 49, 0, 131084, 42, 0, 131085, 49, 0, 131086, 42, 0, 131087, 49, 0, 131088, 42, 0, 131089, 49, 0, 131090, 1610612776, 0, 196610, 49, 0, 196611, 42, 0, 196612, 49, 0, 196613, 42, 0, 196614, 49, 0, 196615, 42, 0, 196616, 49, 0, 196617, 42, 0, 196618, 49, 0, 196619, 42, 0, 196620, 49, 0, 196621, 42, 0, 196622, 49, 0, 196623, 42, 0, 196624, 49, 0, 196625, 42, 0, 262146, 42, 0, 262147, 49, 0, 262148, 42, 0, 262149, 49, 0, 262150, 42, 0, 262151, 49, 0, 262152, 42, 0, 262153, 49, 0, 262154, 42, 0, 262155, 49, 0, 262156, 42, 0, 262157, 49, 0, 262158, 42, 0, 262159, 49, 0, 262160, 42, 0, 262161, 49, 0, 327682, 49, 0, 327683, 42, 0, 327684, 49, 0, 327685, 42, 0, 327686, 49, 0, 327687, 42, 0, 327688, 49, 0, 327689, 42, 0, 327690, 49, 0, 327691, 42, 0, 327692, 49, 0, 327693, 42, 0, 327694, 49, 0, 327695, 42, 0, 327696, 49, 0, 327697, 42, 0, 393218, 42, 0, 393219, 49, 0, 393220, 42, 0, 393221, 49, 0, 393222, 42, 0, 393223, 49, 0, 393224, 42, 0, 393225, 49, 0, 393226, 42, 0, 393227, 49, 0, 393228, 42, 0, 393229, 49, 0, 393230, 42, 0, 393231, 49, 0, 393232, 42, 0, 393233, 49, 0, 458754, 49, 0, 458755, 42, 0, 458756, 49, 0, 458757, 42, 0, 458758, 49, 0, 458759, 42, 0, 458760, 49, 0, 458761, 42, 0, 458762, 49, 0, 458763, 42, 0, 458764, 49, 0, 458765, 42, 0, 458766, 49, 0, 458767, 42, 0, 458768, 49, 0, 458769, 42, 0, 524290, 42, 0, 524291, 49, 0, 524292, 42, 0, 524293, 49, 0, 524294, 42, 0, 524295, 49, 0, 524296, 42, 0, 524297, 49, 0, 524298, 42, 0, 524299, 49, 0, 524300, 42, 0, 524301, 49, 0, 524302, 42, 0, 524303, 49, 0, 524304, 42, 0, 524305, 49, 0, 589826, 49, 0, 589827, 42, 0, 589828, 49, 0, 589829, 42, 0, 589830, 49, 0, 589831, 42, 0, 589832, 49, 0, 589833, 42, 0, 589834, 49, 0, 589835, 42, 0, 589836, 49, 0, 589837, 42, 0, 589838, 49, 0, 589839, 42, 0, 589840, 49, 0, 589841, 42, 0 )
+
+[node name="ExteriorTileMap" type="TileMap" parent="level_sections/section4"]
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 15, 0, 0, 16, 0, 0, 17, 0, 0, 18, 0, 0, 19, 0, 0, 65536, 0, 0, 65555, 0, 0, 131072, 0, 0, 131091, 0, 0, 196608, 0, 0, 196609, -1073741809, 0, 196626, -1610612721, 0, 196627, 0, 0, 262144, 0, 0, 262145, -1073741809, 0, 262162, -1610612721, 0, 262163, 0, 0, 327680, 0, 0, 327681, 0, 0, 327698, 0, 0, 327699, 0, 0, 393216, 0, 0, 393217, 0, 0, 393234, 0, 0, 393235, 0, 0, 458752, 0, 0, 458753, -1073741809, 0, 458770, -1610612721, 0, 458771, 0, 0, 524288, 0, 0, 524289, -1073741809, 0, 524306, -1610612721, 0, 524307, 0, 0, 589824, 0, 0, 589825, -1073741809, 0, 589832, 1610612777, 0, 589842, -1610612721, 0, 589843, 0, 0, 655360, 0, 0, 655361, -1073741809, 0, 655362, 1610612751, 0, 655363, 1610612751, 0, 655364, 1610612751, 0, 655365, 1610612751, 0, 655366, 1610612751, 0, 655367, 1610612751, 0, 655368, -1610612733, 0, 655369, 0, 0, 655370, 0, 0, 655371, -1073741821, 0, 655372, 1610612751, 0, 655373, 1610612751, 0, 655374, 1610612751, 0, 655375, 1610612751, 0, 655376, 1610612751, 0, 655377, 1610612751, 0, 655378, -1610612721, 0, 655379, 0, 0, 720896, 0, 0, 720897, 0, 0, 720898, 0, 0, 720899, 0, 0, 720900, 0, 0, 720901, 0, 0, 720902, 0, 0, 720903, 0, 0, 720904, -1610612733, 0, 720905, 0, 0, 720906, 0, 0, 720907, -1073741821, 0, 720908, 0, 0, 720909, 0, 0, 720910, 0, 0, 720911, 0, 0, 720912, 0, 0, 720913, 0, 0, 720914, 0, 0, 720915, 0, 0 )
+
+[node name="MovementTiles" type="Node2D" parent="level_sections/section4"]
+script = ExtResource( 7 )
+
+[node name="Tile" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 152, 184 )
+texture = ExtResource( 10 )
+
+[node name="Tile2" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 168, 184 )
+texture = ExtResource( 10 )
+
+[node name="Tile3" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 168, 168 )
+texture = ExtResource( 10 )
+
+[node name="Tile4" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 152, 168 )
+texture = ExtResource( 10 )
+
+[node name="Tile133" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 152, 24 )
+texture = ExtResource( 10 )
+
+[node name="Tile134" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 168, 24 )
+texture = ExtResource( 10 )
+
+[node name="Tile135" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 168, 8 )
+texture = ExtResource( 10 )
+
+[node name="Tile136" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 152, 8 )
+texture = ExtResource( 10 )
+
+[node name="Tile5" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 152, 152 )
+texture = ExtResource( 10 )
+
+[node name="Tile6" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 136, 152 )
+texture = ExtResource( 10 )
+
+[node name="Tile7" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 120, 152 )
+texture = ExtResource( 10 )
+
+[node name="Tile8" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 104, 152 )
+texture = ExtResource( 10 )
+
+[node name="Tile9" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 88, 152 )
+texture = ExtResource( 10 )
+
+[node name="Tile10" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 72, 152 )
+texture = ExtResource( 10 )
+
+[node name="Tile11" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 56, 152 )
+texture = ExtResource( 10 )
+
+[node name="Tile12" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 40, 152 )
+texture = ExtResource( 10 )
+
+[node name="Tile13" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 280, 152 )
+texture = ExtResource( 10 )
+
+[node name="Tile14" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 264, 152 )
+texture = ExtResource( 10 )
+
+[node name="Tile15" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 248, 152 )
+texture = ExtResource( 10 )
+
+[node name="Tile16" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 232, 152 )
+texture = ExtResource( 10 )
+
+[node name="Tile17" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 216, 152 )
+texture = ExtResource( 10 )
+
+[node name="Tile18" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 200, 152 )
+texture = ExtResource( 10 )
+
+[node name="Tile19" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 184, 152 )
+texture = ExtResource( 10 )
+
+[node name="Tile20" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 168, 152 )
+texture = ExtResource( 10 )
+
+[node name="Tile21" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 152, 136 )
+texture = ExtResource( 10 )
+
+[node name="Tile22" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 136, 136 )
+texture = ExtResource( 10 )
+
+[node name="Tile23" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 120, 136 )
+texture = ExtResource( 10 )
+
+[node name="Tile24" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 104, 136 )
+texture = ExtResource( 10 )
+
+[node name="Tile25" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 88, 136 )
+texture = ExtResource( 10 )
+
+[node name="Tile26" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 72, 136 )
+texture = ExtResource( 10 )
+
+[node name="Tile27" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 56, 136 )
+texture = ExtResource( 10 )
+
+[node name="Tile28" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 40, 136 )
+texture = ExtResource( 10 )
+
+[node name="Tile29" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 280, 136 )
+texture = ExtResource( 10 )
+
+[node name="Tile30" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 264, 136 )
+texture = ExtResource( 10 )
+
+[node name="Tile31" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 248, 136 )
+texture = ExtResource( 10 )
+
+[node name="Tile32" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 232, 136 )
+texture = ExtResource( 10 )
+
+[node name="Tile33" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 216, 136 )
+texture = ExtResource( 10 )
+
+[node name="Tile34" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 200, 136 )
+texture = ExtResource( 10 )
+
+[node name="Tile35" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 184, 136 )
+texture = ExtResource( 10 )
+
+[node name="Tile36" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 168, 136 )
+texture = ExtResource( 10 )
+
+[node name="Tile37" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 152, 120 )
+texture = ExtResource( 10 )
+
+[node name="Tile38" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 136, 120 )
+texture = ExtResource( 10 )
+
+[node name="Tile39" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 120, 120 )
+texture = ExtResource( 10 )
+
+[node name="Tile40" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 104, 120 )
+texture = ExtResource( 10 )
+
+[node name="Tile41" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 88, 120 )
+texture = ExtResource( 10 )
+
+[node name="Tile42" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 72, 120 )
+texture = ExtResource( 10 )
+
+[node name="Tile43" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 56, 120 )
+texture = ExtResource( 10 )
+
+[node name="Tile44" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 40, 120 )
+texture = ExtResource( 10 )
+
+[node name="Tile45" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 280, 120 )
+texture = ExtResource( 10 )
+
+[node name="Tile46" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 264, 120 )
+texture = ExtResource( 10 )
+
+[node name="Tile47" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 248, 120 )
+texture = ExtResource( 10 )
+
+[node name="Tile48" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 232, 120 )
+texture = ExtResource( 10 )
+
+[node name="Tile49" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 216, 120 )
+texture = ExtResource( 10 )
+
+[node name="Tile50" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 200, 120 )
+texture = ExtResource( 10 )
+
+[node name="Tile51" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 184, 120 )
+texture = ExtResource( 10 )
+
+[node name="Tile52" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 168, 120 )
+texture = ExtResource( 10 )
+
+[node name="Tile53" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 152, 104 )
+texture = ExtResource( 10 )
+
+[node name="Tile54" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 136, 104 )
+texture = ExtResource( 10 )
+
+[node name="Tile55" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 120, 104 )
+texture = ExtResource( 10 )
+
+[node name="Tile56" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 104, 104 )
+texture = ExtResource( 10 )
+
+[node name="Tile57" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 88, 104 )
+texture = ExtResource( 10 )
+
+[node name="Tile58" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 72, 104 )
+texture = ExtResource( 10 )
+
+[node name="Tile59" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 56, 104 )
+texture = ExtResource( 10 )
+
+[node name="Tile60" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 40, 104 )
+texture = ExtResource( 10 )
+
+[node name="Tile61" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 280, 104 )
+texture = ExtResource( 10 )
+
+[node name="Tile62" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 264, 104 )
+texture = ExtResource( 10 )
+
+[node name="Tile63" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 248, 104 )
+texture = ExtResource( 10 )
+
+[node name="Tile64" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 232, 104 )
+texture = ExtResource( 10 )
+
+[node name="Tile65" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 216, 104 )
+texture = ExtResource( 10 )
+
+[node name="Tile66" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 200, 104 )
+texture = ExtResource( 10 )
+
+[node name="Tile67" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 184, 104 )
+texture = ExtResource( 10 )
+
+[node name="Tile68" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 168, 104 )
+texture = ExtResource( 10 )
+
+[node name="Tile69" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 152, 88 )
+texture = ExtResource( 10 )
+
+[node name="Tile70" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 136, 88 )
+texture = ExtResource( 10 )
+
+[node name="Tile71" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 120, 88 )
+texture = ExtResource( 10 )
+
+[node name="Tile72" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 104, 88 )
+texture = ExtResource( 10 )
+
+[node name="Tile73" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 88, 88 )
+texture = ExtResource( 10 )
+
+[node name="Tile74" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 72, 88 )
+texture = ExtResource( 10 )
+
+[node name="Tile75" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 56, 88 )
+texture = ExtResource( 10 )
+
+[node name="Tile76" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 40, 88 )
+texture = ExtResource( 10 )
+
+[node name="Tile77" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 280, 88 )
+texture = ExtResource( 10 )
+
+[node name="Tile78" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 264, 88 )
+texture = ExtResource( 10 )
+
+[node name="Tile79" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 248, 88 )
+texture = ExtResource( 10 )
+
+[node name="Tile80" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 232, 88 )
+texture = ExtResource( 10 )
+
+[node name="Tile81" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 216, 88 )
+texture = ExtResource( 10 )
+
+[node name="Tile82" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 200, 88 )
+texture = ExtResource( 10 )
+
+[node name="Tile83" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 184, 88 )
+texture = ExtResource( 10 )
+
+[node name="Tile84" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 168, 88 )
+texture = ExtResource( 10 )
+
+[node name="Tile85" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 152, 72 )
+texture = ExtResource( 10 )
+
+[node name="Tile86" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 136, 72 )
+texture = ExtResource( 10 )
+
+[node name="Tile87" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 120, 72 )
+texture = ExtResource( 10 )
+
+[node name="Tile88" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 104, 72 )
+texture = ExtResource( 10 )
+
+[node name="Tile89" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 88, 72 )
+texture = ExtResource( 10 )
+
+[node name="Tile90" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 72, 72 )
+texture = ExtResource( 10 )
+
+[node name="Tile91" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 56, 72 )
+texture = ExtResource( 10 )
+
+[node name="Tile92" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 40, 72 )
+texture = ExtResource( 10 )
+
+[node name="Tile93" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 280, 72 )
+texture = ExtResource( 10 )
+
+[node name="Tile94" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 264, 72 )
+texture = ExtResource( 10 )
+
+[node name="Tile95" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 248, 72 )
+texture = ExtResource( 10 )
+
+[node name="Tile96" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 232, 72 )
+texture = ExtResource( 10 )
+
+[node name="Tile97" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 216, 72 )
+texture = ExtResource( 10 )
+
+[node name="Tile98" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 200, 72 )
+texture = ExtResource( 10 )
+
+[node name="Tile99" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 184, 72 )
+texture = ExtResource( 10 )
+
+[node name="Tile100" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 168, 72 )
+texture = ExtResource( 10 )
+
+[node name="Tile101" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 152, 56 )
+texture = ExtResource( 10 )
+
+[node name="Tile102" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 136, 56 )
+texture = ExtResource( 10 )
+
+[node name="Tile103" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 120, 56 )
+texture = ExtResource( 10 )
+
+[node name="Tile104" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 104, 56 )
+texture = ExtResource( 10 )
+
+[node name="Tile105" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 88, 56 )
+texture = ExtResource( 10 )
+
+[node name="Tile106" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 72, 56 )
+texture = ExtResource( 10 )
+
+[node name="Tile107" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 56, 56 )
+texture = ExtResource( 10 )
+
+[node name="Tile108" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 40, 56 )
+texture = ExtResource( 10 )
+
+[node name="Tile109" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 280, 56 )
+texture = ExtResource( 10 )
+
+[node name="Tile110" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 264, 56 )
+texture = ExtResource( 10 )
+
+[node name="Tile111" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 248, 56 )
+texture = ExtResource( 10 )
+
+[node name="Tile112" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 232, 56 )
+texture = ExtResource( 10 )
+
+[node name="Tile113" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 216, 56 )
+texture = ExtResource( 10 )
+
+[node name="Tile114" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 200, 56 )
+texture = ExtResource( 10 )
+
+[node name="Tile115" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 184, 56 )
+texture = ExtResource( 10 )
+
+[node name="Tile116" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 168, 56 )
+texture = ExtResource( 10 )
+
+[node name="Tile117" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 152, 40 )
+texture = ExtResource( 10 )
+
+[node name="Tile118" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 136, 40 )
+texture = ExtResource( 10 )
+
+[node name="Tile119" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 120, 40 )
+texture = ExtResource( 10 )
+
+[node name="Tile120" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 104, 40 )
+texture = ExtResource( 10 )
+
+[node name="Tile121" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 88, 40 )
+texture = ExtResource( 10 )
+
+[node name="Tile122" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 72, 40 )
+texture = ExtResource( 10 )
+
+[node name="Tile123" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 56, 40 )
+texture = ExtResource( 10 )
+
+[node name="Tile124" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 40, 40 )
+texture = ExtResource( 10 )
+
+[node name="Tile125" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 280, 40 )
+texture = ExtResource( 10 )
+
+[node name="Tile126" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 264, 40 )
+texture = ExtResource( 10 )
+
+[node name="Tile127" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 248, 40 )
+texture = ExtResource( 10 )
+
+[node name="Tile128" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 232, 40 )
+texture = ExtResource( 10 )
+
+[node name="Tile129" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 216, 40 )
+texture = ExtResource( 10 )
+
+[node name="Tile130" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 200, 40 )
+texture = ExtResource( 10 )
+
+[node name="Tile131" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 184, 40 )
+texture = ExtResource( 10 )
+
+[node name="Tile132" type="Sprite" parent="level_sections/section4/MovementTiles"]
+position = Vector2( 168, 40 )
+texture = ExtResource( 10 )
+
+[node name="section5" type="Node2D" parent="level_sections"]
+position = Vector2( 0, -768 )
+
+[node name="WalkableTileMap" type="TileMap" parent="level_sections/section5"]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 65537, 40, 0, 65538, 40, 0, 65539, 40, 0, 65540, 40, 0, 65541, 40, 0, 65542, 40, 0, 65543, 40, 0, 65544, 40, 0, 65545, 40, 0, 65546, 40, 0, 65547, 40, 0, 65548, 40, 0, 65549, 40, 0, 65550, 40, 0, 65551, 40, 0, 65552, 40, 0, 65553, 40, 0, 65554, 40, 0, 131073, -1073741784, 0, 131074, 42, 0, 131075, 49, 0, 131076, 42, 0, 131077, 49, 0, 131078, 42, 0, 131079, 49, 0, 131080, 42, 0, 131081, 49, 0, 131082, 42, 0, 131083, 49, 0, 131084, 42, 0, 131085, 49, 0, 131086, 42, 0, 131087, 49, 0, 131088, 42, 0, 131089, 49, 0, 131090, 1610612776, 0, 196610, 49, 0, 196611, 42, 0, 196612, 49, 0, 196613, 42, 0, 196614, 49, 0, 196615, 42, 0, 196616, 49, 0, 196617, 42, 0, 196618, 49, 0, 196619, 42, 0, 196620, 49, 0, 196621, 42, 0, 196622, 49, 0, 196623, 42, 0, 196624, 49, 0, 196625, 42, 0, 262146, 42, 0, 262147, 49, 0, 262148, 42, 0, 262149, 49, 0, 262150, 42, 0, 262151, 49, 0, 262152, 42, 0, 262153, 49, 0, 262154, 42, 0, 262155, 49, 0, 262156, 42, 0, 262157, 49, 0, 262158, 42, 0, 262159, 49, 0, 262160, 42, 0, 262161, 49, 0, 327682, 49, 0, 327683, 42, 0, 327684, 49, 0, 327685, 42, 0, 327686, 49, 0, 327687, 42, 0, 327688, 49, 0, 327689, 42, 0, 327690, 49, 0, 327691, 42, 0, 327692, 49, 0, 327693, 42, 0, 327694, 49, 0, 327695, 42, 0, 327696, 49, 0, 327697, 42, 0, 393218, 42, 0, 393219, 49, 0, 393220, 42, 0, 393221, 49, 0, 393222, 42, 0, 393223, 49, 0, 393224, 42, 0, 393225, 49, 0, 393226, 42, 0, 393227, 49, 0, 393228, 42, 0, 393229, 49, 0, 393230, 42, 0, 393231, 49, 0, 393232, 42, 0, 393233, 49, 0, 458754, 49, 0, 458755, 42, 0, 458756, 49, 0, 458757, 42, 0, 458758, 49, 0, 458759, 42, 0, 458760, 49, 0, 458761, 42, 0, 458762, 49, 0, 458763, 42, 0, 458764, 49, 0, 458765, 42, 0, 458766, 49, 0, 458767, 42, 0, 458768, 49, 0, 458769, 42, 0, 524290, 42, 0, 524291, 49, 0, 524292, 42, 0, 524293, 49, 0, 524294, 42, 0, 524295, 49, 0, 524296, 42, 0, 524297, 49, 0, 524298, 42, 0, 524299, 49, 0, 524300, 42, 0, 524301, 49, 0, 524302, 42, 0, 524303, 49, 0, 524304, 42, 0, 524305, 49, 0, 589826, 49, 0, 589827, 42, 0, 589828, 49, 0, 589829, 42, 0, 589830, 49, 0, 589831, 42, 0, 589832, 49, 0, 589833, 42, 0, 589834, 49, 0, 589835, 42, 0, 589836, 49, 0, 589837, 42, 0, 589838, 49, 0, 589839, 42, 0, 589840, 49, 0, 589841, 42, 0 )
+
+[node name="ExteriorTileMap" type="TileMap" parent="level_sections/section5"]
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 15, 0, 0, 16, 0, 0, 17, 0, 0, 18, 0, 0, 19, 0, 0, 65536, 0, 0, 65555, 0, 0, 131072, 0, 0, 131091, 0, 0, 196608, 0, 0, 196609, -1073741809, 0, 196626, -1610612721, 0, 196627, 0, 0, 262144, 0, 0, 262145, -1073741809, 0, 262162, -1610612721, 0, 262163, 0, 0, 327680, 0, 0, 327681, 0, 0, 327698, 0, 0, 327699, 0, 0, 393216, 0, 0, 393217, 0, 0, 393234, 0, 0, 393235, 0, 0, 458752, 0, 0, 458753, -1073741809, 0, 458770, -1610612721, 0, 458771, 0, 0, 524288, 0, 0, 524289, -1073741809, 0, 524306, -1610612721, 0, 524307, 0, 0, 589824, 0, 0, 589825, -1073741809, 0, 589832, 1610612777, 0, 589842, -1610612721, 0, 589843, 0, 0, 655360, 0, 0, 655361, -1073741809, 0, 655362, 1610612751, 0, 655363, 1610612751, 0, 655364, 1610612751, 0, 655365, 1610612751, 0, 655366, 1610612751, 0, 655367, 1610612751, 0, 655368, -1610612733, 0, 655369, 0, 0, 655370, 0, 0, 655371, -1073741821, 0, 655372, 1610612751, 0, 655373, 1610612751, 0, 655374, 1610612751, 0, 655375, 1610612751, 0, 655376, 1610612751, 0, 655377, 1610612751, 0, 655378, -1610612721, 0, 655379, 0, 0, 720896, 0, 0, 720897, 0, 0, 720898, 0, 0, 720899, 0, 0, 720900, 0, 0, 720901, 0, 0, 720902, 0, 0, 720903, 0, 0, 720904, -1610612733, 0, 720905, 0, 0, 720906, 0, 0, 720907, -1073741821, 0, 720908, 0, 0, 720909, 0, 0, 720910, 0, 0, 720911, 0, 0, 720912, 0, 0, 720913, 0, 0, 720914, 0, 0, 720915, 0, 0 )
+
+[node name="MovementTiles" type="Node2D" parent="level_sections/section5"]
+script = ExtResource( 7 )
+
+[node name="Tile" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 152, 184 )
+texture = ExtResource( 10 )
+
+[node name="Tile2" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 168, 184 )
+texture = ExtResource( 10 )
+
+[node name="Tile3" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 168, 168 )
+texture = ExtResource( 10 )
+
+[node name="Tile4" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 152, 168 )
+texture = ExtResource( 10 )
+
+[node name="Tile133" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 152, 24 )
+texture = ExtResource( 10 )
+
+[node name="Tile134" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 168, 24 )
+texture = ExtResource( 10 )
+
+[node name="Tile135" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 168, 8 )
+texture = ExtResource( 10 )
+
+[node name="Tile136" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 152, 8 )
+texture = ExtResource( 10 )
+
+[node name="Tile5" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 152, 152 )
+texture = ExtResource( 10 )
+
+[node name="Tile6" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 136, 152 )
+texture = ExtResource( 10 )
+
+[node name="Tile7" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 120, 152 )
+texture = ExtResource( 10 )
+
+[node name="Tile8" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 104, 152 )
+texture = ExtResource( 10 )
+
+[node name="Tile9" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 88, 152 )
+texture = ExtResource( 10 )
+
+[node name="Tile10" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 72, 152 )
+texture = ExtResource( 10 )
+
+[node name="Tile11" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 56, 152 )
+texture = ExtResource( 10 )
+
+[node name="Tile12" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 40, 152 )
+texture = ExtResource( 10 )
+
+[node name="Tile13" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 280, 152 )
+texture = ExtResource( 10 )
+
+[node name="Tile14" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 264, 152 )
+texture = ExtResource( 10 )
+
+[node name="Tile15" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 248, 152 )
+texture = ExtResource( 10 )
+
+[node name="Tile16" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 232, 152 )
+texture = ExtResource( 10 )
+
+[node name="Tile17" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 216, 152 )
+texture = ExtResource( 10 )
+
+[node name="Tile18" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 200, 152 )
+texture = ExtResource( 10 )
+
+[node name="Tile19" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 184, 152 )
+texture = ExtResource( 10 )
+
+[node name="Tile20" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 168, 152 )
+texture = ExtResource( 10 )
+
+[node name="Tile21" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 152, 136 )
+texture = ExtResource( 10 )
+
+[node name="Tile22" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 136, 136 )
+texture = ExtResource( 10 )
+
+[node name="Tile23" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 120, 136 )
+texture = ExtResource( 10 )
+
+[node name="Tile24" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 104, 136 )
+texture = ExtResource( 10 )
+
+[node name="Tile25" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 88, 136 )
+texture = ExtResource( 10 )
+
+[node name="Tile26" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 72, 136 )
+texture = ExtResource( 10 )
+
+[node name="Tile27" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 56, 136 )
+texture = ExtResource( 10 )
+
+[node name="Tile28" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 40, 136 )
+texture = ExtResource( 10 )
+
+[node name="Tile29" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 280, 136 )
+texture = ExtResource( 10 )
+
+[node name="Tile30" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 264, 136 )
+texture = ExtResource( 10 )
+
+[node name="Tile31" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 248, 136 )
+texture = ExtResource( 10 )
+
+[node name="Tile32" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 232, 136 )
+texture = ExtResource( 10 )
+
+[node name="Tile33" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 216, 136 )
+texture = ExtResource( 10 )
+
+[node name="Tile34" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 200, 136 )
+texture = ExtResource( 10 )
+
+[node name="Tile35" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 184, 136 )
+texture = ExtResource( 10 )
+
+[node name="Tile36" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 168, 136 )
+texture = ExtResource( 10 )
+
+[node name="Tile37" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 152, 120 )
+texture = ExtResource( 10 )
+
+[node name="Tile38" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 136, 120 )
+texture = ExtResource( 10 )
+
+[node name="Tile39" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 120, 120 )
+texture = ExtResource( 10 )
+
+[node name="Tile40" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 104, 120 )
+texture = ExtResource( 10 )
+
+[node name="Tile41" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 88, 120 )
+texture = ExtResource( 10 )
+
+[node name="Tile42" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 72, 120 )
+texture = ExtResource( 10 )
+
+[node name="Tile43" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 56, 120 )
+texture = ExtResource( 10 )
+
+[node name="Tile44" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 40, 120 )
+texture = ExtResource( 10 )
+
+[node name="Tile45" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 280, 120 )
+texture = ExtResource( 10 )
+
+[node name="Tile46" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 264, 120 )
+texture = ExtResource( 10 )
+
+[node name="Tile47" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 248, 120 )
+texture = ExtResource( 10 )
+
+[node name="Tile48" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 232, 120 )
+texture = ExtResource( 10 )
+
+[node name="Tile49" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 216, 120 )
+texture = ExtResource( 10 )
+
+[node name="Tile50" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 200, 120 )
+texture = ExtResource( 10 )
+
+[node name="Tile51" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 184, 120 )
+texture = ExtResource( 10 )
+
+[node name="Tile52" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 168, 120 )
+texture = ExtResource( 10 )
+
+[node name="Tile53" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 152, 104 )
+texture = ExtResource( 10 )
+
+[node name="Tile54" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 136, 104 )
+texture = ExtResource( 10 )
+
+[node name="Tile55" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 120, 104 )
+texture = ExtResource( 10 )
+
+[node name="Tile56" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 104, 104 )
+texture = ExtResource( 10 )
+
+[node name="Tile57" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 88, 104 )
+texture = ExtResource( 10 )
+
+[node name="Tile58" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 72, 104 )
+texture = ExtResource( 10 )
+
+[node name="Tile59" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 56, 104 )
+texture = ExtResource( 10 )
+
+[node name="Tile60" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 40, 104 )
+texture = ExtResource( 10 )
+
+[node name="Tile61" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 280, 104 )
+texture = ExtResource( 10 )
+
+[node name="Tile62" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 264, 104 )
+texture = ExtResource( 10 )
+
+[node name="Tile63" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 248, 104 )
+texture = ExtResource( 10 )
+
+[node name="Tile64" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 232, 104 )
+texture = ExtResource( 10 )
+
+[node name="Tile65" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 216, 104 )
+texture = ExtResource( 10 )
+
+[node name="Tile66" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 200, 104 )
+texture = ExtResource( 10 )
+
+[node name="Tile67" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 184, 104 )
+texture = ExtResource( 10 )
+
+[node name="Tile68" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 168, 104 )
+texture = ExtResource( 10 )
+
+[node name="Tile69" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 152, 88 )
+texture = ExtResource( 10 )
+
+[node name="Tile70" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 136, 88 )
+texture = ExtResource( 10 )
+
+[node name="Tile71" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 120, 88 )
+texture = ExtResource( 10 )
+
+[node name="Tile72" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 104, 88 )
+texture = ExtResource( 10 )
+
+[node name="Tile73" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 88, 88 )
+texture = ExtResource( 10 )
+
+[node name="Tile74" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 72, 88 )
+texture = ExtResource( 10 )
+
+[node name="Tile75" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 56, 88 )
+texture = ExtResource( 10 )
+
+[node name="Tile76" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 40, 88 )
+texture = ExtResource( 10 )
+
+[node name="Tile77" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 280, 88 )
+texture = ExtResource( 10 )
+
+[node name="Tile78" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 264, 88 )
+texture = ExtResource( 10 )
+
+[node name="Tile79" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 248, 88 )
+texture = ExtResource( 10 )
+
+[node name="Tile80" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 232, 88 )
+texture = ExtResource( 10 )
+
+[node name="Tile81" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 216, 88 )
+texture = ExtResource( 10 )
+
+[node name="Tile82" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 200, 88 )
+texture = ExtResource( 10 )
+
+[node name="Tile83" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 184, 88 )
+texture = ExtResource( 10 )
+
+[node name="Tile84" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 168, 88 )
+texture = ExtResource( 10 )
+
+[node name="Tile85" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 152, 72 )
+texture = ExtResource( 10 )
+
+[node name="Tile86" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 136, 72 )
+texture = ExtResource( 10 )
+
+[node name="Tile87" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 120, 72 )
+texture = ExtResource( 10 )
+
+[node name="Tile88" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 104, 72 )
+texture = ExtResource( 10 )
+
+[node name="Tile89" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 88, 72 )
+texture = ExtResource( 10 )
+
+[node name="Tile90" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 72, 72 )
+texture = ExtResource( 10 )
+
+[node name="Tile91" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 56, 72 )
+texture = ExtResource( 10 )
+
+[node name="Tile92" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 40, 72 )
+texture = ExtResource( 10 )
+
+[node name="Tile93" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 280, 72 )
+texture = ExtResource( 10 )
+
+[node name="Tile94" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 264, 72 )
+texture = ExtResource( 10 )
+
+[node name="Tile95" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 248, 72 )
+texture = ExtResource( 10 )
+
+[node name="Tile96" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 232, 72 )
+texture = ExtResource( 10 )
+
+[node name="Tile97" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 216, 72 )
+texture = ExtResource( 10 )
+
+[node name="Tile98" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 200, 72 )
+texture = ExtResource( 10 )
+
+[node name="Tile99" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 184, 72 )
+texture = ExtResource( 10 )
+
+[node name="Tile100" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 168, 72 )
+texture = ExtResource( 10 )
+
+[node name="Tile101" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 152, 56 )
+texture = ExtResource( 10 )
+
+[node name="Tile102" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 136, 56 )
+texture = ExtResource( 10 )
+
+[node name="Tile103" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 120, 56 )
+texture = ExtResource( 10 )
+
+[node name="Tile104" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 104, 56 )
+texture = ExtResource( 10 )
+
+[node name="Tile105" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 88, 56 )
+texture = ExtResource( 10 )
+
+[node name="Tile106" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 72, 56 )
+texture = ExtResource( 10 )
+
+[node name="Tile107" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 56, 56 )
+texture = ExtResource( 10 )
+
+[node name="Tile108" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 40, 56 )
+texture = ExtResource( 10 )
+
+[node name="Tile109" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 280, 56 )
+texture = ExtResource( 10 )
+
+[node name="Tile110" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 264, 56 )
+texture = ExtResource( 10 )
+
+[node name="Tile111" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 248, 56 )
+texture = ExtResource( 10 )
+
+[node name="Tile112" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 232, 56 )
+texture = ExtResource( 10 )
+
+[node name="Tile113" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 216, 56 )
+texture = ExtResource( 10 )
+
+[node name="Tile114" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 200, 56 )
+texture = ExtResource( 10 )
+
+[node name="Tile115" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 184, 56 )
+texture = ExtResource( 10 )
+
+[node name="Tile116" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 168, 56 )
+texture = ExtResource( 10 )
+
+[node name="Tile117" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 152, 40 )
+texture = ExtResource( 10 )
+
+[node name="Tile118" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 136, 40 )
+texture = ExtResource( 10 )
+
+[node name="Tile119" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 120, 40 )
+texture = ExtResource( 10 )
+
+[node name="Tile120" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 104, 40 )
+texture = ExtResource( 10 )
+
+[node name="Tile121" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 88, 40 )
+texture = ExtResource( 10 )
+
+[node name="Tile122" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 72, 40 )
+texture = ExtResource( 10 )
+
+[node name="Tile123" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 56, 40 )
+texture = ExtResource( 10 )
+
+[node name="Tile124" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 40, 40 )
+texture = ExtResource( 10 )
+
+[node name="Tile125" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 280, 40 )
+texture = ExtResource( 10 )
+
+[node name="Tile126" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 264, 40 )
+texture = ExtResource( 10 )
+
+[node name="Tile127" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 248, 40 )
+texture = ExtResource( 10 )
+
+[node name="Tile128" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 232, 40 )
+texture = ExtResource( 10 )
+
+[node name="Tile129" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 216, 40 )
+texture = ExtResource( 10 )
+
+[node name="Tile130" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 200, 40 )
+texture = ExtResource( 10 )
+
+[node name="Tile131" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 184, 40 )
+texture = ExtResource( 10 )
+
+[node name="Tile132" type="Sprite" parent="level_sections/section5/MovementTiles"]
+position = Vector2( 168, 40 )
+texture = ExtResource( 10 )
+
+[node name="section6" type="Node2D" parent="level_sections"]
+position = Vector2( 0, -960 )
+
+[node name="WalkableTileMap" type="TileMap" parent="level_sections/section6"]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 65537, 40, 0, 65538, 40, 0, 65539, 40, 0, 65540, 40, 0, 65541, 40, 0, 65542, 40, 0, 65543, 40, 0, 65544, 40, 0, 65545, 40, 0, 65546, 40, 0, 65547, 40, 0, 65548, 40, 0, 65549, 40, 0, 65550, 40, 0, 65551, 40, 0, 65552, 40, 0, 65553, 40, 0, 65554, 40, 0, 131073, -1073741784, 0, 131074, 42, 0, 131075, 49, 0, 131076, 42, 0, 131077, 49, 0, 131078, 42, 0, 131079, 49, 0, 131080, 42, 0, 131081, 49, 0, 131082, 42, 0, 131083, 49, 0, 131084, 42, 0, 131085, 49, 0, 131086, 42, 0, 131087, 49, 0, 131088, 42, 0, 131089, 49, 0, 131090, 1610612776, 0, 196610, 49, 0, 196611, 42, 0, 196612, 49, 0, 196613, 42, 0, 196614, 49, 0, 196615, 42, 0, 196616, 49, 0, 196617, 42, 0, 196618, 49, 0, 196619, 42, 0, 196620, 49, 0, 196621, 42, 0, 196622, 49, 0, 196623, 42, 0, 196624, 49, 0, 196625, 42, 0, 262146, 42, 0, 262147, 49, 0, 262148, 42, 0, 262149, 49, 0, 262150, 42, 0, 262151, 49, 0, 262152, 42, 0, 262153, 49, 0, 262154, 42, 0, 262155, 49, 0, 262156, 42, 0, 262157, 49, 0, 262158, 42, 0, 262159, 49, 0, 262160, 42, 0, 262161, 49, 0, 327682, 49, 0, 327683, 42, 0, 327684, 49, 0, 327685, 42, 0, 327686, 49, 0, 327687, 42, 0, 327688, 49, 0, 327689, 42, 0, 327690, 49, 0, 327691, 42, 0, 327692, 49, 0, 327693, 42, 0, 327694, 49, 0, 327695, 42, 0, 327696, 49, 0, 327697, 42, 0, 393218, 42, 0, 393219, 49, 0, 393220, 42, 0, 393221, 49, 0, 393222, 42, 0, 393223, 49, 0, 393224, 42, 0, 393225, 49, 0, 393226, 42, 0, 393227, 49, 0, 393228, 42, 0, 393229, 49, 0, 393230, 42, 0, 393231, 49, 0, 393232, 42, 0, 393233, 49, 0, 458754, 49, 0, 458755, 42, 0, 458756, 49, 0, 458757, 42, 0, 458758, 49, 0, 458759, 42, 0, 458760, 49, 0, 458761, 42, 0, 458762, 49, 0, 458763, 42, 0, 458764, 49, 0, 458765, 42, 0, 458766, 49, 0, 458767, 42, 0, 458768, 49, 0, 458769, 42, 0, 524290, 42, 0, 524291, 49, 0, 524292, 42, 0, 524293, 49, 0, 524294, 42, 0, 524295, 49, 0, 524296, 42, 0, 524297, 49, 0, 524298, 42, 0, 524299, 49, 0, 524300, 42, 0, 524301, 49, 0, 524302, 42, 0, 524303, 49, 0, 524304, 42, 0, 524305, 49, 0, 589826, 49, 0, 589827, 42, 0, 589828, 49, 0, 589829, 42, 0, 589830, 49, 0, 589831, 42, 0, 589832, 49, 0, 589833, 42, 0, 589834, 49, 0, 589835, 42, 0, 589836, 49, 0, 589837, 42, 0, 589838, 49, 0, 589839, 42, 0, 589840, 49, 0, 589841, 42, 0 )
+
+[node name="ExteriorTileMap" type="TileMap" parent="level_sections/section6"]
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 15, 0, 0, 16, 0, 0, 17, 0, 0, 18, 0, 0, 19, 0, 0, 65536, 0, 0, 65555, 0, 0, 131072, 0, 0, 131091, 0, 0, 196608, 0, 0, 196609, -1073741809, 0, 196626, -1610612721, 0, 196627, 0, 0, 262144, 0, 0, 262145, -1073741809, 0, 262162, -1610612721, 0, 262163, 0, 0, 327680, 0, 0, 327681, 0, 0, 327698, 0, 0, 327699, 0, 0, 393216, 0, 0, 393217, 0, 0, 393234, 0, 0, 393235, 0, 0, 458752, 0, 0, 458753, -1073741809, 0, 458770, -1610612721, 0, 458771, 0, 0, 524288, 0, 0, 524289, -1073741809, 0, 524306, -1610612721, 0, 524307, 0, 0, 589824, 0, 0, 589825, -1073741809, 0, 589832, 1610612777, 0, 589842, -1610612721, 0, 589843, 0, 0, 655360, 0, 0, 655361, -1073741809, 0, 655362, 1610612751, 0, 655363, 1610612751, 0, 655364, 1610612751, 0, 655365, 1610612751, 0, 655366, 1610612751, 0, 655367, 1610612751, 0, 655368, -1610612733, 0, 655369, 0, 0, 655370, 0, 0, 655371, -1073741821, 0, 655372, 1610612751, 0, 655373, 1610612751, 0, 655374, 1610612751, 0, 655375, 1610612751, 0, 655376, 1610612751, 0, 655377, 1610612751, 0, 655378, -1610612721, 0, 655379, 0, 0, 720896, 0, 0, 720897, 0, 0, 720898, 0, 0, 720899, 0, 0, 720900, 0, 0, 720901, 0, 0, 720902, 0, 0, 720903, 0, 0, 720904, -1610612733, 0, 720905, 0, 0, 720906, 0, 0, 720907, -1073741821, 0, 720908, 0, 0, 720909, 0, 0, 720910, 0, 0, 720911, 0, 0, 720912, 0, 0, 720913, 0, 0, 720914, 0, 0, 720915, 0, 0 )
+
+[node name="MovementTiles" type="Node2D" parent="level_sections/section6"]
+script = ExtResource( 7 )
+
+[node name="Tile" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 152, 184 )
+texture = ExtResource( 10 )
+
+[node name="Tile2" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 168, 184 )
+texture = ExtResource( 10 )
+
+[node name="Tile3" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 168, 168 )
+texture = ExtResource( 10 )
+
+[node name="Tile4" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 152, 168 )
+texture = ExtResource( 10 )
+
+[node name="Tile133" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 152, 24 )
+texture = ExtResource( 10 )
+
+[node name="Tile134" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 168, 24 )
+texture = ExtResource( 10 )
+
+[node name="Tile135" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 168, 8 )
+texture = ExtResource( 10 )
+
+[node name="Tile136" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 152, 8 )
+texture = ExtResource( 10 )
+
+[node name="Tile5" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 152, 152 )
+texture = ExtResource( 10 )
+
+[node name="Tile6" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 136, 152 )
+texture = ExtResource( 10 )
+
+[node name="Tile7" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 120, 152 )
+texture = ExtResource( 10 )
+
+[node name="Tile8" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 104, 152 )
+texture = ExtResource( 10 )
+
+[node name="Tile9" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 88, 152 )
+texture = ExtResource( 10 )
+
+[node name="Tile10" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 72, 152 )
+texture = ExtResource( 10 )
+
+[node name="Tile11" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 56, 152 )
+texture = ExtResource( 10 )
+
+[node name="Tile12" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 40, 152 )
+texture = ExtResource( 10 )
+
+[node name="Tile13" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 280, 152 )
+texture = ExtResource( 10 )
+
+[node name="Tile14" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 264, 152 )
+texture = ExtResource( 10 )
+
+[node name="Tile15" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 248, 152 )
+texture = ExtResource( 10 )
+
+[node name="Tile16" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 232, 152 )
+texture = ExtResource( 10 )
+
+[node name="Tile17" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 216, 152 )
+texture = ExtResource( 10 )
+
+[node name="Tile18" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 200, 152 )
+texture = ExtResource( 10 )
+
+[node name="Tile19" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 184, 152 )
+texture = ExtResource( 10 )
+
+[node name="Tile20" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 168, 152 )
+texture = ExtResource( 10 )
+
+[node name="Tile21" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 152, 136 )
+texture = ExtResource( 10 )
+
+[node name="Tile22" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 136, 136 )
+texture = ExtResource( 10 )
+
+[node name="Tile23" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 120, 136 )
+texture = ExtResource( 10 )
+
+[node name="Tile24" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 104, 136 )
+texture = ExtResource( 10 )
+
+[node name="Tile25" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 88, 136 )
+texture = ExtResource( 10 )
+
+[node name="Tile26" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 72, 136 )
+texture = ExtResource( 10 )
+
+[node name="Tile27" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 56, 136 )
+texture = ExtResource( 10 )
+
+[node name="Tile28" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 40, 136 )
+texture = ExtResource( 10 )
+
+[node name="Tile29" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 280, 136 )
+texture = ExtResource( 10 )
+
+[node name="Tile30" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 264, 136 )
+texture = ExtResource( 10 )
+
+[node name="Tile31" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 248, 136 )
+texture = ExtResource( 10 )
+
+[node name="Tile32" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 232, 136 )
+texture = ExtResource( 10 )
+
+[node name="Tile33" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 216, 136 )
+texture = ExtResource( 10 )
+
+[node name="Tile34" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 200, 136 )
+texture = ExtResource( 10 )
+
+[node name="Tile35" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 184, 136 )
+texture = ExtResource( 10 )
+
+[node name="Tile36" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 168, 136 )
+texture = ExtResource( 10 )
+
+[node name="Tile37" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 152, 120 )
+texture = ExtResource( 10 )
+
+[node name="Tile38" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 136, 120 )
+texture = ExtResource( 10 )
+
+[node name="Tile39" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 120, 120 )
+texture = ExtResource( 10 )
+
+[node name="Tile40" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 104, 120 )
+texture = ExtResource( 10 )
+
+[node name="Tile41" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 88, 120 )
+texture = ExtResource( 10 )
+
+[node name="Tile42" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 72, 120 )
+texture = ExtResource( 10 )
+
+[node name="Tile43" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 56, 120 )
+texture = ExtResource( 10 )
+
+[node name="Tile44" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 40, 120 )
+texture = ExtResource( 10 )
+
+[node name="Tile45" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 280, 120 )
+texture = ExtResource( 10 )
+
+[node name="Tile46" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 264, 120 )
+texture = ExtResource( 10 )
+
+[node name="Tile47" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 248, 120 )
+texture = ExtResource( 10 )
+
+[node name="Tile48" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 232, 120 )
+texture = ExtResource( 10 )
+
+[node name="Tile49" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 216, 120 )
+texture = ExtResource( 10 )
+
+[node name="Tile50" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 200, 120 )
+texture = ExtResource( 10 )
+
+[node name="Tile51" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 184, 120 )
+texture = ExtResource( 10 )
+
+[node name="Tile52" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 168, 120 )
+texture = ExtResource( 10 )
+
+[node name="Tile53" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 152, 104 )
+texture = ExtResource( 10 )
+
+[node name="Tile54" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 136, 104 )
+texture = ExtResource( 10 )
+
+[node name="Tile55" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 120, 104 )
+texture = ExtResource( 10 )
+
+[node name="Tile56" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 104, 104 )
+texture = ExtResource( 10 )
+
+[node name="Tile57" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 88, 104 )
+texture = ExtResource( 10 )
+
+[node name="Tile58" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 72, 104 )
+texture = ExtResource( 10 )
+
+[node name="Tile59" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 56, 104 )
+texture = ExtResource( 10 )
+
+[node name="Tile60" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 40, 104 )
+texture = ExtResource( 10 )
+
+[node name="Tile61" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 280, 104 )
+texture = ExtResource( 10 )
+
+[node name="Tile62" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 264, 104 )
+texture = ExtResource( 10 )
+
+[node name="Tile63" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 248, 104 )
+texture = ExtResource( 10 )
+
+[node name="Tile64" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 232, 104 )
+texture = ExtResource( 10 )
+
+[node name="Tile65" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 216, 104 )
+texture = ExtResource( 10 )
+
+[node name="Tile66" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 200, 104 )
+texture = ExtResource( 10 )
+
+[node name="Tile67" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 184, 104 )
+texture = ExtResource( 10 )
+
+[node name="Tile68" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 168, 104 )
+texture = ExtResource( 10 )
+
+[node name="Tile69" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 152, 88 )
+texture = ExtResource( 10 )
+
+[node name="Tile70" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 136, 88 )
+texture = ExtResource( 10 )
+
+[node name="Tile71" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 120, 88 )
+texture = ExtResource( 10 )
+
+[node name="Tile72" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 104, 88 )
+texture = ExtResource( 10 )
+
+[node name="Tile73" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 88, 88 )
+texture = ExtResource( 10 )
+
+[node name="Tile74" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 72, 88 )
+texture = ExtResource( 10 )
+
+[node name="Tile75" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 56, 88 )
+texture = ExtResource( 10 )
+
+[node name="Tile76" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 40, 88 )
+texture = ExtResource( 10 )
+
+[node name="Tile77" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 280, 88 )
+texture = ExtResource( 10 )
+
+[node name="Tile78" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 264, 88 )
+texture = ExtResource( 10 )
+
+[node name="Tile79" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 248, 88 )
+texture = ExtResource( 10 )
+
+[node name="Tile80" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 232, 88 )
+texture = ExtResource( 10 )
+
+[node name="Tile81" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 216, 88 )
+texture = ExtResource( 10 )
+
+[node name="Tile82" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 200, 88 )
+texture = ExtResource( 10 )
+
+[node name="Tile83" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 184, 88 )
+texture = ExtResource( 10 )
+
+[node name="Tile84" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 168, 88 )
+texture = ExtResource( 10 )
+
+[node name="Tile85" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 152, 72 )
+texture = ExtResource( 10 )
+
+[node name="Tile86" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 136, 72 )
+texture = ExtResource( 10 )
+
+[node name="Tile87" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 120, 72 )
+texture = ExtResource( 10 )
+
+[node name="Tile88" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 104, 72 )
+texture = ExtResource( 10 )
+
+[node name="Tile89" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 88, 72 )
+texture = ExtResource( 10 )
+
+[node name="Tile90" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 72, 72 )
+texture = ExtResource( 10 )
+
+[node name="Tile91" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 56, 72 )
+texture = ExtResource( 10 )
+
+[node name="Tile92" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 40, 72 )
+texture = ExtResource( 10 )
+
+[node name="Tile93" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 280, 72 )
+texture = ExtResource( 10 )
+
+[node name="Tile94" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 264, 72 )
+texture = ExtResource( 10 )
+
+[node name="Tile95" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 248, 72 )
+texture = ExtResource( 10 )
+
+[node name="Tile96" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 232, 72 )
+texture = ExtResource( 10 )
+
+[node name="Tile97" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 216, 72 )
+texture = ExtResource( 10 )
+
+[node name="Tile98" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 200, 72 )
+texture = ExtResource( 10 )
+
+[node name="Tile99" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 184, 72 )
+texture = ExtResource( 10 )
+
+[node name="Tile100" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 168, 72 )
+texture = ExtResource( 10 )
+
+[node name="Tile101" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 152, 56 )
+texture = ExtResource( 10 )
+
+[node name="Tile102" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 136, 56 )
+texture = ExtResource( 10 )
+
+[node name="Tile103" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 120, 56 )
+texture = ExtResource( 10 )
+
+[node name="Tile104" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 104, 56 )
+texture = ExtResource( 10 )
+
+[node name="Tile105" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 88, 56 )
+texture = ExtResource( 10 )
+
+[node name="Tile106" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 72, 56 )
+texture = ExtResource( 10 )
+
+[node name="Tile107" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 56, 56 )
+texture = ExtResource( 10 )
+
+[node name="Tile108" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 40, 56 )
+texture = ExtResource( 10 )
+
+[node name="Tile109" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 280, 56 )
+texture = ExtResource( 10 )
+
+[node name="Tile110" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 264, 56 )
+texture = ExtResource( 10 )
+
+[node name="Tile111" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 248, 56 )
+texture = ExtResource( 10 )
+
+[node name="Tile112" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 232, 56 )
+texture = ExtResource( 10 )
+
+[node name="Tile113" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 216, 56 )
+texture = ExtResource( 10 )
+
+[node name="Tile114" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 200, 56 )
+texture = ExtResource( 10 )
+
+[node name="Tile115" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 184, 56 )
+texture = ExtResource( 10 )
+
+[node name="Tile116" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 168, 56 )
+texture = ExtResource( 10 )
+
+[node name="Tile117" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 152, 40 )
+texture = ExtResource( 10 )
+
+[node name="Tile118" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 136, 40 )
+texture = ExtResource( 10 )
+
+[node name="Tile119" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 120, 40 )
+texture = ExtResource( 10 )
+
+[node name="Tile120" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 104, 40 )
+texture = ExtResource( 10 )
+
+[node name="Tile121" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 88, 40 )
+texture = ExtResource( 10 )
+
+[node name="Tile122" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 72, 40 )
+texture = ExtResource( 10 )
+
+[node name="Tile123" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 56, 40 )
+texture = ExtResource( 10 )
+
+[node name="Tile124" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 40, 40 )
+texture = ExtResource( 10 )
+
+[node name="Tile125" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 280, 40 )
+texture = ExtResource( 10 )
+
+[node name="Tile126" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 264, 40 )
+texture = ExtResource( 10 )
+
+[node name="Tile127" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 248, 40 )
+texture = ExtResource( 10 )
+
+[node name="Tile128" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 232, 40 )
+texture = ExtResource( 10 )
+
+[node name="Tile129" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 216, 40 )
+texture = ExtResource( 10 )
+
+[node name="Tile130" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 200, 40 )
+texture = ExtResource( 10 )
+
+[node name="Tile131" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 184, 40 )
+texture = ExtResource( 10 )
+
+[node name="Tile132" type="Sprite" parent="level_sections/section6/MovementTiles"]
+position = Vector2( 168, 40 )
+texture = ExtResource( 10 )
+
+[node name="LevelCamera" parent="." instance=ExtResource( 8 )]
+position = Vector2( 160, 96 )
+
+[node name="UI" parent="LevelCamera" instance=ExtResource( 1 )]
+margin_left = -160.0
+margin_top = -90.0
+margin_right = -120.0
+margin_bottom = -50.0
+
+[node name="Player" parent="." instance=ExtResource( 5 )]
+position = Vector2( 57, 70 )

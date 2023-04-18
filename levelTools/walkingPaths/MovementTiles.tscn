@@ -44,10 +44,6 @@ texture = ExtResource( 1 )
 position = Vector2( 8, 72 )
 texture = ExtResource( 1 )
 
-[node name="Tile72" type="Sprite" parent="."]
-position = Vector2( -8, 72 )
-texture = ExtResource( 1 )
-
 [node name="Tile64" type="Sprite" parent="."]
 position = Vector2( 24, 72 )
 texture = ExtResource( 1 )
@@ -118,10 +114,6 @@ texture = ExtResource( 1 )
 
 [node name="Tile19" type="Sprite" parent="."]
 position = Vector2( 8, 88 )
-texture = ExtResource( 1 )
-
-[node name="Tile91" type="Sprite" parent="."]
-position = Vector2( -8, 88 )
 texture = ExtResource( 1 )
 
 [node name="Tile20" type="Sprite" parent="."]
@@ -196,16 +188,8 @@ texture = ExtResource( 1 )
 position = Vector2( 8, 104 )
 texture = ExtResource( 1 )
 
-[node name="Tile92" type="Sprite" parent="."]
-position = Vector2( -8, 104 )
-texture = ExtResource( 1 )
-
 [node name="Tile73" type="Sprite" parent="."]
 position = Vector2( 8, 120 )
-texture = ExtResource( 1 )
-
-[node name="Tile93" type="Sprite" parent="."]
-position = Vector2( -8, 120 )
 texture = ExtResource( 1 )
 
 [node name="Tile38" type="Sprite" parent="."]
@@ -352,20 +336,12 @@ texture = ExtResource( 1 )
 position = Vector2( 312, 72 )
 texture = ExtResource( 1 )
 
-[node name="Tile98" type="Sprite" parent="."]
-position = Vector2( 328, 72 )
-texture = ExtResource( 1 )
-
 [node name="Tile100" type="Sprite" parent="."]
 position = Vector2( 296, 88 )
 texture = ExtResource( 1 )
 
 [node name="Tile101" type="Sprite" parent="."]
 position = Vector2( 312, 88 )
-texture = ExtResource( 1 )
-
-[node name="Tile102" type="Sprite" parent="."]
-position = Vector2( 328, 88 )
 texture = ExtResource( 1 )
 
 [node name="Tile104" type="Sprite" parent="."]
@@ -382,14 +358,6 @@ texture = ExtResource( 1 )
 
 [node name="Tile107" type="Sprite" parent="."]
 position = Vector2( 312, 120 )
-texture = ExtResource( 1 )
-
-[node name="Tile108" type="Sprite" parent="."]
-position = Vector2( 328, 104 )
-texture = ExtResource( 1 )
-
-[node name="Tile109" type="Sprite" parent="."]
-position = Vector2( 328, 120 )
 texture = ExtResource( 1 )
 
 [node name="Tile55" type="Sprite" parent="."]
@@ -424,36 +392,20 @@ texture = ExtResource( 1 )
 position = Vector2( 152, 8 )
 texture = ExtResource( 1 )
 
-[node name="Tile94" type="Sprite" parent="."]
-position = Vector2( 168, -8 )
-texture = ExtResource( 1 )
-
-[node name="Tile95" type="Sprite" parent="."]
-position = Vector2( 152, -8 )
-texture = ExtResource( 1 )
-
-[node name="Tile113" type="Sprite" parent="."]
-position = Vector2( 152, 184 )
-texture = ExtResource( 1 )
-
 [node name="Tile114" type="Sprite" parent="."]
 position = Vector2( 152, 168 )
 texture = ExtResource( 1 )
 
-[node name="Tile116" type="Sprite" parent="."]
-position = Vector2( 168, 184 )
+[node name="Tile117" type="Sprite" parent="."]
+position = Vector2( 168, 168 )
 texture = ExtResource( 1 )
 
 [node name="Tile115" type="Sprite" parent="."]
-position = Vector2( 152, 200 )
+position = Vector2( 152, 184 )
 texture = ExtResource( 1 )
 
 [node name="Tile122" type="Sprite" parent="."]
-position = Vector2( 168, 200 )
-texture = ExtResource( 1 )
-
-[node name="Tile117" type="Sprite" parent="."]
-position = Vector2( 168, 168 )
+position = Vector2( 168, 184 )
 texture = ExtResource( 1 )
 
 [node name="Tile118" type="Sprite" parent="."]
