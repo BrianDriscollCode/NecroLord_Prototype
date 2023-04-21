@@ -9,6 +9,7 @@ func _process(delta):
 		
 func endGame():
 	emit_signal("level_changed", "second_level")
+	print("test")
 	print("press end level")
 	
 
