@@ -32,23 +32,6 @@ func moveCamera(direction):
 			self.global_position.x -= 320;
 		"down":
 			self.global_position.y += 192;
-#			if subtract:
-#				self.global_position.y += 192;
-#				add = !add;
-#				subtract = !subtract;
-#			else: 
-#				self.global_position.y += 190;
-#				add = !add;
-#				subtract = !subtract;
 		"up":
 			self.global_position.y -= 192;
-#			if add:
-#				self.global_position.y -= 192;
-#				add = !add;
-#				subtract = !subtract;
-#				print(192)
-#			else: 
-#				self.global_position.y -= 190;
-#				add = !add;
-#				subtract = !subtract;
-#				print(190)
+
